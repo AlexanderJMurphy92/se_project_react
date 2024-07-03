@@ -33,6 +33,11 @@
   width: 20px;
   border: none;
   background-image: url("../../assets/close.svg");
+  cursor: pointer;
+}
+
+.modal__close:hover {
+  cursor: pointer;
 }
 
 .modal__content {
@@ -55,7 +60,6 @@
   font-weight: 700;
 }
 
-/* This targets only input labels */
 .modal__label:not(.modal__label_type_radio) {
   margin-bottom: 24px;
 }
@@ -93,6 +97,7 @@
 
 .modal__label_type_radio {
   padding-bottom: 8px;
+  cursor: pointer;
 }
 
 .modal__label_type_radio:last-of-type {
@@ -108,4 +113,9 @@
   color: #fff;
   margin-top: 32px;
   padding: 0;
+  cursor: pointer;
+}
+
+.modal__submit:hover {
+  cursor: pointer;
 }
