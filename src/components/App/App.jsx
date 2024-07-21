@@ -96,10 +96,7 @@ function App() {
             <Route
               path="/"
               element={
-                <Main
-                  weatherData={weatherData}
-                  handleCardClick={handleCardClick}
-                />
+                <Main weatherData={weatherData} onCardClick={handleCardClick} />
               }
             />
             <Route
@@ -107,7 +104,6 @@ function App() {
               element={<Profile onCardClick={handleCardClick} />}
             />
           </Routes>
-          {/* <Main weatherData={weatherData} handleCardClick={handleCardClick} /> */}
           <Footer />
         </CurrentTemperatureUnitContext.Provider>
       </div>

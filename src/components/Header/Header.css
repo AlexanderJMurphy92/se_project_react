@@ -16,11 +16,11 @@
 .header__date-and-location {
   margin: 0;
   color: #000;
-  margin-right: 20px; /* Add margin to separate from the logo */
+  margin-right: 20px;
 }
 
 .header__toggle-switch-container {
-  margin-left: auto; /* Push this container and its contents to the far right */
+  margin-left: auto;
   display: flex;
   align-items: center;
 }
@@ -46,5 +46,10 @@
 
 .header__username {
   margin: 0;
+  color: #000;
+}
+
+.header__link {
+  text-decoration: none;
   color: #000;
 }

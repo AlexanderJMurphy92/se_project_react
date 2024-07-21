@@ -5,7 +5,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherData, handleCardClick }) {
+function Main({ weatherData, onCardClick }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
   const convertTemperature = (tempF, unit) => {
@@ -35,7 +35,7 @@ function Main({ weatherData, handleCardClick }) {
                 <ItemCard
                   key={item._id}
                   item={item}
-                  onCardClick={handleCardClick}
+                  onCardClick={onCardClick}
                 />
               );
             })}

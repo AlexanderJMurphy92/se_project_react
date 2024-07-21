@@ -26,12 +26,12 @@ function Header({ handleAddClick, weatherData }) {
         >
           + Add Clothes
         </button>
-        <div className="header__user-container">
-          <p className="header__username">
-            <Link to="/profile">Mr. T</Link>
-          </p>
-          <img src={avatar} alt="Mr T." className="header__avatar" />
-        </div>
+        <Link to="/profile" className="header__link">
+          <div className="header__user-container">
+            <p className="header__username">Mr. T</p>
+            <img src={avatar} alt="Mr T." className="header__avatar" />
+          </div>
+        </Link>
       </div>
     </header>
   );

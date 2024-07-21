@@ -15,21 +15,4 @@ function Profile({ onCardClick }) {
   );
 }
 
-// function Profile({ onCardClick, clothingItems, handleAddClick, weatherData }) {
-//   return (
-//     <div className="profile">
-//       <section className="profile__sidebar">
-//         {/* <SideBar weatherData={weatherData} /> */}
-//       </section>
-//       <section className="profile__clothing-items">
-//         <ClothesSection
-//           onCardClick={onCardClick}
-//           clothingItems={clothingItems}
-//           handleAddClick={handleAddClick}
-//         />
-//       </section>
-//     </div>
-//   );
-// }
-
 export default Profile;
