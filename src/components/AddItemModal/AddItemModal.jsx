@@ -8,12 +8,22 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onAddItem(values, () => {
-      setValues({ name: "", imageUrl: "", weather: "" });
-    });
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent page refresh
+    const values = {
+      name: event.target.name.value,
+      imageUrl: event.target.imageUrl.value,
+      weather: event.target.weather.value,
+    };
+    onAddItem(values);
   };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   onAddItem(values, () => {
+  //     setValues({ name: "", imageUrl: "", weather: "" });
+  //   });
+  // };
 
   return (
     <ModalWithForm

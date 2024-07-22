@@ -1,46 +1,36 @@
 const baseUrl = "http://localhost:3001";
+const headers = {
+  "Content-Type": "application/json",
+};
 
 const processResponse = (res) => {
   if (res.ok) {
     return res.json();
   }
-  return res.text().then((text) => {
-    throw new Error(`Error: ${res.status} ${text}`);
-  });
+  return Promise.reject(`Error: ${res.status}`);
 };
 
 function getItems() {
-  return fetch(`${baseUrl}/items`)
-    .then(processResponse)
-    .catch((error) => {
-      console.error("Error fetching items:", error);
-      throw error;
-    });
+  return fetch(`${baseUrl}/items`).then(processResponse);
 }
 
-function addItem(item) {
+function addItem(name, imageUrl, weather) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(item),
-  })
-    .then(processResponse)
-    .catch((error) => {
-      console.error("Error adding item:", error);
-      throw error;
-    });
+    headers: headers,
+    body: JSON.stringify({
+      name,
+      imageUrl,
+      weather,
+    }),
+  }).then(processResponse);
 }
 
-function deleteItem(id) {
-  return fetch(`${baseUrl}/items/${id}`, {
+function deleteItem(item) {
+  return fetch(`${baseUrl}/items/${item._id}`, {
     method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-  })
-    .then(processResponse)
-    .catch((error) => {
-      console.error("Error deleting item:", error);
-      throw error;
-    });
+    headers: headers,
+  }).then(processResponse);
 }
 
 export { getItems, addItem, deleteItem };
