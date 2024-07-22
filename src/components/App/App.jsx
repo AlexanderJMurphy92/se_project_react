@@ -10,7 +10,7 @@ import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { getItems, deleteItem, addItem } from "../../utils/Api";
+import { getItems, deleteItem, postItems } from "../../utils/Api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -52,17 +52,17 @@ function App() {
   //     .catch(console.error);
   // };
 
-  const handleDeleteItem = (id) => {
-    return deleteItem(id)
+  const handleDeleteItem = (item) => {
+    console.log(item);
+    deleteItem(item)
       .then(() => {
-        const updatedClothingItems = clothingItems.filter(
-          (item) => item._id !== id
+        const newClothingItems = clothingItems.filter(
+          (cardItem) => cardItem._id !== item._id
         );
-        setClothingItems(updatedClothingItems);
+        setClothingItems(newClothingItems);
+        setActiveModal("");
       })
-      .catch((error) => {
-        console.error("Error deleting this item", error);
-      });
+      .catch((e) => console.error(e));
   };
 
   const handleToggleSwitchChange = () => {

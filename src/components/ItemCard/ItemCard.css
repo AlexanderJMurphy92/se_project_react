@@ -6,6 +6,7 @@
   height: 326px;
   display: flex;
   justify-content: center;
+  padding: 0px;
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.3);
@@ -27,4 +28,9 @@
   object-fit: cover;
   width: 100%;
   cursor: pointer;
+}
+
+.modal__content_type_image .card__image {
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin if necessary */
 }

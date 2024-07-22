@@ -14,7 +14,7 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(processResponse);
 }
 
-function addItem(name, imageUrl, weather) {
+function postItems(name, imageUrl, weather) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: headers,
@@ -23,7 +23,7 @@ function addItem(name, imageUrl, weather) {
       imageUrl,
       weather,
     }),
-  }).then(processResponse);
+  }).then(checkResponse);
 }
 
 function deleteItem(item) {
@@ -33,4 +33,4 @@ function deleteItem(item) {
   }).then(processResponse);
 }
 
-export { getItems, addItem, deleteItem };
+export { getItems, postItems, deleteItem };
