@@ -14,16 +14,12 @@ function getItems() {
   return fetch(`${baseUrl}/items`).then(processResponse);
 }
 
-function postItems(name, imageUrl, weather) {
+function addItem({ name, weather, imageUrl }) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
-    headers: headers,
-    body: JSON.stringify({
-      name,
-      imageUrl,
-      weather,
-    }),
-  }).then(checkResponse);
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, weather, imageUrl }),
+  }).then(processResponse);
 }
 
 function deleteItem(item) {
@@ -33,4 +29,4 @@ function deleteItem(item) {
   }).then(processResponse);
 }
 
-export { getItems, postItems, deleteItem };
+export { getItems, addItem, deleteItem };

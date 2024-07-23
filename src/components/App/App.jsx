@@ -10,7 +10,7 @@ import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { getItems, deleteItem, postItems } from "../../utils/Api";
+import { getItems, deleteItem, addItem } from "../../utils/Api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -36,21 +36,15 @@ function App() {
     setActiveModal("");
   };
 
-  const onAddItem = (item) => {
-    postItems(item.name, item.imageUrl, item.weather).then((newCard) => {
-      setClothingItems([newCard, ...clothingItems]);
-    });
+  const onAddItem = (values, onDone) => {
+    return addItem(values)
+      .then((item) => {
+        setClothingItems([item, ...clothingItems]);
+        closeActiveModal();
+        onDone();
+      })
+      .catch(console.error);
   };
-
-  // const onAddItem = (values, onDone) => {
-  //   return addItem(values)
-  //     .then((item) => {
-  //       setClothingItems([item, ...clothingItems]);
-  //       closeActiveModal();
-  //       onDone();
-  //     })
-  //     .catch(console.error);
-  // };
 
   const handleDeleteItem = (item) => {
     console.log(item);
