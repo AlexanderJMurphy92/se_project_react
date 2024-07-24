@@ -29,4 +29,4 @@ function deleteItem(item) {
   }).then(processResponse);
 }
 
-export { getItems, addItem, deleteItem };
+export { getItems, addItem, deleteItem, processResponse };

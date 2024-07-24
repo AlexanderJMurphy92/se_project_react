@@ -54,7 +54,7 @@ function App() {
           (cardItem) => cardItem._id !== item._id
         );
         setClothingItems(newClothingItems);
-        setActiveModal("");
+        closeActiveModal();
       })
       .catch((e) => console.error(e));
   };
